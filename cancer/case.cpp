@@ -6,7 +6,6 @@
 
 struct CaseField
 {
-    std::string id;
     std::string value;
     static std::unordered_map<std::string, double> IdFactors;
     static std::unordered_map<std::string, double> FieldValues;
@@ -23,15 +22,15 @@ struct CancerCase
                 std::string deg_malig, std::string breast, std::string breast_quad, std::string irradiat)
     {
         this->type = type;
-        this->age = {MAKE_STRING(age), age};
-        this->menopause = {MAKE_STRING(menopause), menopause};
-        this->size = {MAKE_STRING(size), size};
-        this->inv_nodes = {MAKE_STRING(inv_nodes), inv_nodes};
-        this->node_caps = {MAKE_STRING(node_caps), node_caps};
-        this->deg_malig = {MAKE_STRING(deg_malig), deg_malig};
-        this->breast = {MAKE_STRING(breast), breast};
-        this->breast_quad = {MAKE_STRING(breast_quad), breast_quad};
-        this->irradiat = {MAKE_STRING(irradiat), irradiat};
+        this->age = { age };
+        this->menopause = { menopause };
+        this->size = { size };
+        this->inv_nodes = { inv_nodes };
+        this->node_caps = { node_caps };
+        this->deg_malig = { deg_malig };
+        this->breast = { breast };
+        this->breast_quad = { breast_quad };
+        this->irradiat = { irradiat };
     }
 
     std::string type;
