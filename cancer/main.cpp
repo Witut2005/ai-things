@@ -66,33 +66,41 @@ int main(void)
     AiBrain Brain("recurrence-events");
 
     uint32_t test_id = 0;
-    uint32_t best = 0;
+    double best = 10000;
 
     // while(!Brain.check_if_all_true())
-    while(Brain.get_results().size() != 50)
+    while(1)
     {
-
-        if(Brain.get_results().size() > best)
-        {
-            best = Brain.get_results().size();
-            // std::cout << Brain.get_results() << std::endl;
-            std::cout << Brain.get_results().size() << std::endl;
-            std::cout << "--------------------------------" << std::endl;
-        }
 
         Brain.train(CancerData);
+
+        double total_cost = 0.0;
+        auto results = Brain.get_results();//.size() > best)
+
+        for(auto a : results)
+            total_cost = total_cost + a;
+        
+        // std::cout << total_cost << std::endl;
+
+        if(total_cost < best)
+        {
+            std::cout << total_cost << std::endl;
+            std::cout << "--------------------------------" << std::endl;
+            best = total_cost;
+        }
+
     }
 
-    for(auto a : CaseField::IdFactors)
-    {
-        std::cout << a.first << " " << a.second << std::endl;
-    }
+    // for(auto a : CaseField::IdFactors)
+    // {
+    //     std::cout << a.first << " " << a.second << std::endl;
+    // }
 
-    std::cout << "--------------------------------------------" << std::endl;
+    // std::cout << "--------------------------------------------" << std::endl;
 
-    for(auto a : CaseField::FieldValues)
-    {
-        std::cout << a.first << " " << a.second << std::endl;
-    }
+    // for(auto a : CaseField::FieldValues)
+    // {
+    //     std::cout << a.first << " " << a.second << std::endl;
+    // }
 
 }
