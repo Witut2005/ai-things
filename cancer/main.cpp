@@ -69,10 +69,12 @@ int main(void)
     double best = 10000;
 
     // while(!Brain.check_if_all_true())
-    while(1)
+    Brain.prepare_training();
+    
+    // while(1)
     {
 
-        Brain.train(CancerData);
+        Brain.train(CancerData, true, false);
 
         double total_cost = 0.0;
         auto results = Brain.get_results();//.size() > best)
