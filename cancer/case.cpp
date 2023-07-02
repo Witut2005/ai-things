@@ -7,12 +7,12 @@
 struct CaseField
 {
     std::string value;
-    static std::unordered_map<std::string, double> IdFactors;
-    static std::unordered_map<std::string, double> FieldValues;
+    static std::unordered_map<std::string, double> InputValues; 
+    static std::unordered_map<std::string, double> Weights;
 };
 
-std::unordered_map<std::string, double> CaseField::IdFactors;
-std::unordered_map<std::string, double> CaseField::FieldValues;
+std::unordered_map<std::string, double> CaseField::InputValues;
+std::unordered_map<std::string, double> CaseField::Weights;
 
 #define MAKE_STRING(x) #x
 

@@ -63,18 +63,15 @@ int main(void)
         return 1;
     }
 
-    AiBrain Brain("recurrence-events");
+    AiBrain Brain(CancerData, "recurrence-events");
 
     uint32_t test_id = 0;
     double best = 10000;
 
-    // while(!Brain.check_if_all_true())
-    Brain.prepare_training();
-    
-    // while(1)
+    while(1)
     {
 
-        Brain.train(CancerData, true, false);
+        Brain.train();
 
         double total_cost = 0.0;
         auto results = Brain.get_results();//.size() > best)
@@ -82,8 +79,6 @@ int main(void)
         for(auto a : results)
             total_cost = total_cost + a;
         
-        // std::cout << total_cost << std::endl;
-
         if(total_cost < best)
         {
             std::cout << total_cost << std::endl;
@@ -92,17 +87,5 @@ int main(void)
         }
 
     }
-
-    // for(auto a : CaseField::IdFactors)
-    // {
-    //     std::cout << a.first << " " << a.second << std::endl;
-    // }
-
-    // std::cout << "--------------------------------------------" << std::endl;
-
-    // for(auto a : CaseField::FieldValues)
-    // {
-    //     std::cout << a.first << " " << a.second << std::endl;
-    // }
 
 }
